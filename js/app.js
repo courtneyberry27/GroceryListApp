@@ -9,6 +9,7 @@ const addItemButton = document.querySelector('button.addItemButton');
 const removeItemButton = document.querySelector('button.removeItemButton');
 const list = listUl.children;
 
+//LIST REMOVE AND MOVE BUTTONS FUNCTION
 function attachListButtons(li) {
   let up = document.createElement('button');
   up.className = 'up';
@@ -26,10 +27,12 @@ function attachListButtons(li) {
   li.appendChild(remove);
 }
 
+//CALLS ATTACHING FUNCTION
 for (let i = 0; i < list.length; i += 1) {
   attachListButtons(list[i]);
 }
 
+//BUTTON EVENT LISTENER
 listUl.addEventListener('click', (event) => {
   if (event.target.tagName == 'BUTTON') {
     if(event.target.className == 'remove') {
@@ -56,7 +59,7 @@ listUl.addEventListener('click', (event) => {
 }
 });
 
-
+//HIDE AND SHOW LIST EVENT LISTENER
 toggleList.addEventListener('click', () => {
   if (listDiv.style.display == 'none') {
     toggleList.textContent = 'Hide list';
@@ -67,11 +70,13 @@ toggleList.addEventListener('click', () => {
   }
 });
 
+//DESCRIPTION BUTTON EVENT LISTENER
 descriptionButton.addEventListener('click', () => {
   descriptionP.innerHTML = descriptionInput.value + ':';
   descriptionInput.value = '';
 });
 
+//ADD ITEM BUTTON EVENT LISTENER
 addItemButton.addEventListener('click', () => {
   let ul = document.getElementsByTagName('ul')[0];
   let li = document.createElement('li');
@@ -81,6 +86,7 @@ addItemButton.addEventListener('click', () => {
   addItemInput.value = '';
 });
 
+//REMOVE ITEM BUTTON EVENT LISTENER
 removeItemButton.addEventListener('click', () => {
   let ul = document.getElementsByTagName('ul')[0];
   let li = document.querySelector('li:last-child');
